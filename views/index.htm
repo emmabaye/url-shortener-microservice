@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>URL Shortener</title>
+	<link rel="stylesheet" type="text/css" href="/public/css/bootstrap/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="container">
+		<h1>API Basejump: URL Shortener Microservice</h1>
+		<blockquote>
+			User stories:
+				<ul>1) I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
+				</ul>
+				<ul>2) When I visit that shortened URL, it will redirect me to my original link.</ul>
+		</blockquote>
+		<h3>Example usage:</h3>
+		<code>https://tyni-url.herokuapp.com/new/https://www.google.com</code><br>
+		<code>https://tyni-url.herokuapp.com/http://freecodecamp.com/news</code><br>
+		<h3>Example creation output:</h3>
+		<code>{ "original_url": "http://freecodecamp.com/news", "short_url": "https://tyni-url.herokuapp.com/63" } </code>
+	
+		<h3>Usage:</h3>
+		<code>https://tyni-url.herokuapp.com/63</code>
+	
+		<h3>Will direct to:</h3>
+		<code>http://freecodecamp.com/news</code>
+		</div><br>
+	<footer class="container">
+		Project for freeCodeCamp by <a href="https://freecodecamp.com/emmabaye" target="_blank">emmabaye</a>
+	</footer>
+		
+</body>
+</html>
