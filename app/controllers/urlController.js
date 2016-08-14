@@ -6,9 +6,9 @@ function UrlController(validator){
 
 	// GET, Validate URL
 	this.getValidateUrl = function(req, res, next) {
-
+console.log(req.protocol)
 		var url = req._parsedUrl.path.substring(5); // from request object, substring to remove '/new/'
-		if (validator.isURL(url)) {
+		if (validator.isURL(url,{require_protocol: true})) {
 			next();
 		} else {
 			res.json({
@@ -27,7 +27,7 @@ function UrlController(validator){
 			var newCount = count + 1;  
 			var url = new Url({
 				original_url: req._parsedUrl.path.substring(5),
-				short_url: "https://" + req.hostname + '/' + newCount,
+				short_url: req.protocol + "://" + req.hostname + '/' + newCount,
 
 			});
 
@@ -47,7 +47,7 @@ function UrlController(validator){
 
 	// GET, GotoUrl
 	this.getGotoUrl = function(req, res, next){
-		var shortUrl = "https://" + req.hostname + req.originalUrl;
+		var shortUrl =  req.protocol + "://" + req.hostname + req.originalUrl;
 		Url.findOne({'short_url': shortUrl}, function(err, url){
 			if(err){
 				throw err;
