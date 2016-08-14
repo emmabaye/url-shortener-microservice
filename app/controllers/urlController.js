@@ -6,7 +6,6 @@ function UrlController(validator){
 
 	// GET, Validate URL
 	this.getValidateUrl = function(req, res, next) {
-console.log(req.protocol)
 		var url = req._parsedUrl.path.substring(5); // from request object, substring to remove '/new/'
 		if (validator.isURL(url,{require_protocol: true})) {
 			next();
